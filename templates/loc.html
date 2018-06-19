@@ -1,0 +1,66 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Search Product</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $( function() {
+
+    var availableTags = ['mathikere' , 'madiwala', 'new bel road', 'hebbal', 'electronic City', 'malleswaram', 'yeswanthpur','yellahanka' , 'hosa road' , 'vidyaranyapura' , 'rajajinagar' , 'indiranagar' , 'vv Puram' , 'mg road' , 'majestic']
+
+
+
+   var max= 10000;
+    // change max to 1000000 ie. 1L and it hangs.
+    for(var i=0;i<max;i++){
+      availableTags.push(i+'');
+    }
+
+    $("#tags").autocomplete({
+    source: function(request, response) {
+        var results = $.ui.autocomplete.filter(availableTags, request.term);
+
+        response(results.slice(0, 20));
+    }
+});
+  } );
+  $(document).ready(function(){
+   $("form").submit(function(){
+   var contents = $('#tags').val();
+   document.getElementById("id1").value = contents;
+     //   $(document.write(contents));
+
+
+});
+
+   });
+
+  </script>
+</head>
+<body>
+
+    <div class="ui-widget">
+        <form  method="POST" action="/location" >
+        <label for="tags">Enter an address </label>
+        <input id="tags" />
+            <input type="hidden" name="name" id="id1">
+            <input type="submit" value="search">
+
+
+</form >
+
+    </div>
+
+<form action="/logout" method="post">
+    <input type="submit" value="logout"/>
+</form>
+
+
+
+
+</body>
+</html>

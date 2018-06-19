@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+
+ .logout
+  {
+   float:right;
+  top:800px;
+  position:absolute;
+
+   background-color: rgb(94,59,77);
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+
+
+}
+
+
+
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>User Collaborative Filtering</title>
+    <style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+</head>
+<body  background="static/leaf.jpg">
+<h2>Recommendations</h2>
+<h4>
+Since you are a new your recommendations will be based on Apriori Algorithm
+</h4>
+
+
+
+<div>
+     <table border = 1>
+         <tr>
+                      <th>product_name</th>
+                      <th>product_id</th>
+             <tr></tr>
+         {% for li in apr %}
+
+
+
+            <tr>
+               <td> {{ li[0] }} </td>
+               <td> {{ li[1] }} </td>
+
+            </tr>
+
+         {% endfor %}
+     </table>
+    <br>
+    <br>
+</div>
+
+
+
+<form action="/logout" method="post" >
+    <input class="logout" type="submit" value="logout"/>
+</form>
+
+
+
+
+
+</body>
+</html>

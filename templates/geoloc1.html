@@ -1,0 +1,52 @@
+<html>
+<style>
+
+
+  .logout
+  {
+  top:15px;
+  right:0px;
+  width:200px;
+  position:absolute; right: 20px;
+  height:20px;
+  }
+
+
+
+
+</style>
+<head>
+    <title></title>
+</head>
+<body>
+    <form id="myForm" method="post" action="/data" >
+        <input type="button"  value="Stores" onclick="getLocation()">
+        <input id="latitudeId" type="hidden" name="p1" >
+        <input id="longitudeId" type="hidden" name="p2" >
+    </form>
+    <p id="show"></p>
+    <script>
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                document.getElementById("show").innerHTML = "Geolocation is not supported by this browser.";
+            }
+        }
+
+        function showPosition(position) {
+            document.getElementById("latitudeId").value = position.coords.latitude;
+            document.getElementById("longitudeId").value = position.coords.longitude;
+            document.getElementById('myForm').submit();
+        }
+    </script>
+
+
+<form action="/logout" method="post" >
+    <input class="logout" type="submit" value="logout"/>
+</form>
+
+
+
+</body>
+</html>

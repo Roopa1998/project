@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+
+
+  .logout
+  {
+   float:right;
+  top:600px;
+  position:absolute;
+
+   background-color: rgb(94,59,77);
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+
+
+}
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 60%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body background="static/grass.jpg">
+
+<div>
+     <table border = 1 align="center">
+         <tr>
+                      <th>shop_id</th>
+                      <th>shop_name</th>
+         <th>shop_address</th>
+
+
+         <th>product_id</th>
+         <th>cost</th>
+         <th>count</th>
+         <th>product_name</th>
+         </tr>
+         {% for li in array %}
+
+
+
+            <tr>
+               <td> {{ li[0] }} </td>
+               <td> {{ li[1] }} </td>
+                <td> {{ li[2] }} </td>
+                <td> {{ li[3] }} </td>
+                <td> {{ li[4] }} </td>
+                 <td> {{ li[5] }} </td>
+                <td> {{ li[6] }} </td>
+
+
+            </tr>
+
+         {% endfor %}
+     </table>
+    <br>
+    <br>
+</div>
+
+<form action="/logout" method="post" >
+    <input class="logout" type="submit" value="logout"/>
+</form>
+
+
+
+
+
+<p></p>
+</body>
+</html>

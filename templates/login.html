@@ -1,0 +1,107 @@
+<html lang="en">
+<head>
+     <link rel="stylesheet" href="/static/1.jpg">
+
+<style>
+
+body,
+input,
+textarea,
+select {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
+  color: #4c4c4c;
+}
+h1 {
+  font-size: 32px;
+  font-weight: 300;
+  color: #4c4c4c;
+  text-align: center;
+  padding-top: 10px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.box h2{
+  text-align: center;
+  margin-top: 30px;
+}
+
+.box {
+  margin: 20px auto;
+  width: 310px;
+  height: 310px;
+  -webkit-border-radius: 8px/7px;
+  -moz-border-radius: 8px/7px;
+  border-radius: 8px/7px;
+  background-color: white;
+  -webkit-box-shadow: 1px 2px 5px grey;
+  -moz-box-shadow: 1px 2px 5px grey;
+  box-shadow: 1px 2px 5px grey;
+  border: solid 1px grey;
+}
+
+.footer h4{
+  text-align: right;
+  margin-right: 30%;
+  margin-top: 30px;
+}
+
+
+input{
+  margin-top: 15px;
+  margin-left: 25%;
+  margin-right:25%;
+}
+
+
+
+
+</style>
+</head>
+
+    <body  background="static/bench.jpg">
+    <script>
+          function signup() {
+          window.location="signup.html";
+        }
+    </script>
+      <h1 style="text-align:center;"></h1>
+    	<div class="box">
+  			<h1>Log In</h1>
+
+  			<form action="/loginpage" method="post">
+    			<input type="number" name="username" id="username" placeholder="Username" required/>
+    			<br>
+    			<input type="password" name="password" id="password" placeholder="Password" required/>
+    			<br>
+    			<input type="submit" class="button" value="Log In"/>
+
+
+  			</form>
+             <input type="button" class="button" value="Signup" onclick="signup();"/>
+{% if error %}
+      <p style="background:honeydew;color:red;text-align:center;height:40px;line-height:40px;"><strong>Error:</strong> {{ error }}
+      {% endif %}
+		</div>
+
+
+   <!-- <div class="footer">
+      <h4>Made by <a href="http://www.github.com/PolBaladas">Pol Baladas</a></h4>
+      <h5 style="text-align:center;">Check <a href="https://github.com/PolBaladas/GCI-LoginApp">this Project</a> on Github</h5>
+    </div>  -->
+
+    {%if users%}
+    <div class="users" style="margin-left:20%">
+      <h2>Registered Users List</h2>
+      <table style="width:100%;">
+        {%for user in users%}
+          <tr>
+            <td>{{user[0]}}</td>
+          </tr>
+        {%endfor%}
+      </table>
+    </div>
+    {%endif%}
+</body>
+</html>

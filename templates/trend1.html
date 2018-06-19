@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Trending Products</title>
+    <style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+</head>
+<body  background="static/leaf.jpg">
+<h2>Recommendations</h2>
+<h4>Since new user only trending products are shown</h4>
+<table border = 1>
+    <tr>
+        <th>Product_Id</th>
+        <th>Product_Name</th>
+    </tr>
+    {% for li in rec2 %}
+    <tr>
+        <td>{{ li[0] }}</td>
+        <td>{{ li[2] }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+
+
+<form action="/logout" method="post">
+    <input type="submit" value="logout"/>
+</form>
+
+
+
+</body>
+</html>
+
